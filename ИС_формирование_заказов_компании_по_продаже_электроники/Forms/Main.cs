@@ -11,6 +11,10 @@ using System.Configuration;
 using System.Data.SqlClient;
 using QueryBuilder;
 using ИС_формирование_заказов_компании_по_продаже_электроники.Forms;
+using System.IO;
+using System.Net.Mail;
+using System.Net;
+using System.Drawing.Printing;
 
 namespace ИС_формирование_заказов_компании_по_продаже_электроники
 {
@@ -210,6 +214,7 @@ namespace ИС_формирование_заказов_компании_по_п�
             }
             if (loginForm.user.phoneNumber == "+375(00)000-00-00")
             {
+                buttonReg.Enabled = true;
                 AdminForm admin = new AdminForm(conn);
                 this.Hide();
                 admin.ShowDialog();
@@ -447,6 +452,205 @@ namespace ИС_формирование_заказов_компании_по_п�
                 }
                 listViewUserOrders.CheckBoxes = false;
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)// save txt
+        {
+            if (loginForm.user.id != -1)
+            {
+                saveFileDialog1.ShowDialog();
+                if (saveFileDialog1.FileName != string.Empty)
+                {
+                    StreamWriter writer = new StreamWriter(saveFileDialog1.FileName);
+                    writer.WriteLine($"Пользователь: {loginForm.user.userName}") ;
+                    writer.WriteLine($"Номер телефона: {loginForm.user.phoneNumber}");
+                    writer.WriteLine($"Адрес: {loginForm.user.address}");
+                    writer.WriteLine($"Эл. почта: {loginForm.user.email}");
+                    writer.WriteLine();
+                    writer.WriteLine($"\tТовары:");
+                    SqlCommand cmd = new SqlCommand("SELECT productID,productName,price FROM Orders WHERE userID=@id", conn);
+                    cmd.Parameters.Add("@id", SqlDbType.Int).Value = loginForm.user.id;
+                    SqlDataReader dataReader = null;
+                    try
+                    {
+                        dataReader = cmd.ExecuteReader();
+                        int counter = 1;
+                        double sum = 0;
+                        while (dataReader.Read())
+                        {
+                            sum += Convert.ToDouble(dataReader[2]);
+                            writer.WriteLine($"{counter}. {Convert.ToString(dataReader[1])} (id: {Convert.ToString(dataReader[0])}) - Цена: {Convert.ToString(dataReader[2])}");
+                            counter++;
+                        }
+                        writer.WriteLine("==============================");
+                        writer.WriteLine($"Сумма заказа = {sum}");
+                        MessageBox.Show("Файл сохранён","success",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    finally
+                    {
+                        writer.Close();
+                        if (dataReader != null && !dataReader.IsClosed)
+                        {
+                            dataReader.Close();
+                        }
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Вы не выбрали файл","info",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                }   
+            }
+            else
+            {
+                MessageBox.Show("Выполните вход","Ошибка",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+            
+
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e) //mail to 
+        {
+            if (loginForm.user.id != -1)
+            {
+                string body = "";
+                
+                body += $"<b>Пользователь: {loginForm.user.userName}</b><br/>";
+                body += $"<b>Номер телефона: {loginForm.user.phoneNumber}</b><br/>";
+                body += $"<b>Адрес: {loginForm.user.address}</b><br/><br/>";
+                body += $"<h1>\tТовары:</h1></br><ol>";
+                SqlCommand cmd = new SqlCommand("SELECT productID,productName,price FROM Orders WHERE userID=@id", conn);
+                cmd.Parameters.Add("@id", SqlDbType.Int).Value = loginForm.user.id;
+                SqlDataReader dataReader = null;
+                try
+                {
+                    dataReader = cmd.ExecuteReader();
+                    double sum = 0;
+                    while (dataReader.Read())
+                    {
+                        sum += Convert.ToDouble(dataReader[2]);
+                        body += $"<li>{Convert.ToString(dataReader[1])} (id: {Convert.ToString(dataReader[0])}) - Цена: {Convert.ToString(dataReader[2])}</li>";
+                    }
+                    body += "</ol><br/><hr/>";
+                    body += $"<b><i>Сумма заказа = {sum}</b></i>";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    if (dataReader != null && !dataReader.IsClosed)
+                    {
+                        dataReader.Close();
+                    }
+                }
+                
+                try
+                {
+                    MailAddress from = new MailAddress("volkov.electronics@gmail.com", "admin");
+                    MailAddress to = new MailAddress(loginForm.user.email);
+                    MailMessage mail = new MailMessage(from, to);
+                    mail.Subject = "Чек заказа volkov.electronics";
+                    mail.Body = body;
+                    mail.IsBodyHtml = true;
+                    SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+                    smtp.Credentials = new NetworkCredential("volkov.electronics@gmail.com", "volkov.electronics12345678");
+                    smtp.EnableSsl = true;
+                    smtp.Send(mail);
+                    //send to administrator
+                    from = new MailAddress("volkov.electronics@gmail.com", "admin");
+                    to = new MailAddress("volkov.electronics@gmail.com");
+                    mail = new MailMessage(from, to);
+                    mail.Subject = "Чек заказа volkov.electronics";
+                    mail.Body = body;
+                    mail.IsBodyHtml = true;
+                    smtp = new SmtpClient("smtp.gmail.com", 587);
+                    smtp.Credentials = new NetworkCredential("volkov.electronics@gmail.com", "volkov.electronics12345678");
+                    smtp.EnableSsl = true;
+                    smtp.Send(mail);
+                    MessageBox.Show($"Чек успешно оправлен на почту {loginForm.user.email}", "success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Выполните вход", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        string pageBody = "";// var for print function
+        private void button3_Click(object sender, EventArgs e) //PRINT
+        {
+            if (loginForm.user.id != -1)
+            {
+                pageBody += $"Пользователь: {loginForm.user.userName}\n";
+                pageBody += $"Номер телефона: {loginForm.user.phoneNumber}\n";
+                pageBody += $"Адрес: {loginForm.user.address}\n";
+                pageBody += $"Эл. почта: {loginForm.user.email}\n\n";
+                pageBody += $"\tТовары:";
+                SqlCommand cmd = new SqlCommand("SELECT productID,productName,price FROM Orders WHERE userID=@id", conn);
+                cmd.Parameters.Add("@id", SqlDbType.Int).Value = loginForm.user.id;
+                SqlDataReader dataReader = null;
+                try
+                {
+                    dataReader = cmd.ExecuteReader();
+                    double sum = 0;
+                    int counter = 0;
+                    while (dataReader.Read())
+                    {
+                        counter++;
+                        sum += Convert.ToDouble(dataReader[2]);
+                        pageBody += $"\t{counter}. {Convert.ToString(dataReader[1])} (id: {Convert.ToString(dataReader[0])}) - Цена: {Convert.ToString(dataReader[2])}\n";
+                    }
+                    pageBody += "==============================\n";
+                    pageBody += $"Сумма заказа = {sum}";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    if (dataReader != null && !dataReader.IsClosed)
+                    {
+                        dataReader.Close();
+                    }
+                }
+
+                try
+                {
+                    PrintDocument doc = new PrintDocument();
+                    doc.PrintPage += PrintPageHandler;
+                    printPreviewDialog1.Document = doc;
+                    printPreviewDialog1.ShowDialog();
+                    printDialog1.Document = doc;
+                    if (printDialog1.ShowDialog() == DialogResult.OK)
+                    {
+                        printDialog1.Document.Print();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Выполните вход", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        void PrintPageHandler(object sender, PrintPageEventArgs e) // for printing handler
+        {
+            e.Graphics.DrawString(pageBody, new Font("Arial", 14), Brushes.Black, 0, 0);
         }
     }
 }

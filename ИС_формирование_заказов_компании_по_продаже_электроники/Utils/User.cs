@@ -40,6 +40,13 @@ namespace ИС_формирование_заказов_компании_по_п�
 
         public void updateData(string newUserName, string newPhoneNum, string newAddress, string newEmail)
         {
+            try
+            {
+                conn.Close();
+            }
+            catch (Exception)
+            { }
+            conn.Open();
             SqlCommand cmd = new SqlCommand("UPDATE Users SET userName = @name, phoneNumber = @phone, address = @address, email = @email WHERE Id = @id", conn);
             cmd.Parameters.Add("@name", SqlDbType.NVarChar).Value = newUserName;
             cmd.Parameters.Add("@phone", SqlDbType.NVarChar).Value = newPhoneNum;
@@ -54,9 +61,9 @@ namespace ИС_формирование_заказов_компании_по_п�
                 this.address = newAddress;
                 this.email = newEmail;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Ошибка" + "\nВероятно такой номер телефона занят");
+                MessageBox.Show(ex.Message);
             }
         }
     }

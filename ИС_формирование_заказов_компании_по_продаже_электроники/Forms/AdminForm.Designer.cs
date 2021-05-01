@@ -78,18 +78,26 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.buttonExecute = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBoxQuery = new System.Windows.Forms.TextBox();
+            this.textBoxAboutUs = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.textBoxAddress2 = new System.Windows.Forms.TextBox();
+            this.textBoxAddress5 = new System.Windows.Forms.TextBox();
+            this.textBoxAddress1 = new System.Windows.Forms.TextBox();
+            this.textBoxAddress4 = new System.Windows.Forms.TextBox();
+            this.textBoxAddress3 = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.textBoxContact2 = new System.Windows.Forms.TextBox();
+            this.textBoxContact5 = new System.Windows.Forms.TextBox();
+            this.textBoxContact1 = new System.Windows.Forms.TextBox();
+            this.textBoxContact4 = new System.Windows.Forms.TextBox();
+            this.textBoxContact3 = new System.Windows.Forms.TextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -104,11 +112,10 @@
             this.splitContainer3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
-            this.splitContainer2.Panel1.SuspendLayout();
-            this.splitContainer2.Panel2.SuspendLayout();
-            this.splitContainer2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox6.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -540,132 +547,197 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.splitContainer2);
+            this.tabPage3.Controls.Add(this.button5);
+            this.tabPage3.Controls.Add(this.button4);
+            this.tabPage3.Controls.Add(this.groupBox6);
+            this.tabPage3.Controls.Add(this.groupBox4);
+            this.tabPage3.Controls.Add(this.pictureBox1);
+            this.tabPage3.Controls.Add(this.groupBox3);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(1212, 621);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Консоль администтратора";
+            this.tabPage3.Text = "Контактная информация";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // splitContainer2
+            // button5
             // 
-            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer2.Name = "splitContainer2";
-            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.button5.Location = new System.Drawing.Point(901, 275);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(303, 25);
+            this.button5.TabIndex = 15;
+            this.button5.Text = "Загрузить картинку";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // splitContainer2.Panel1
+            // button4
             // 
-            this.splitContainer2.Panel1.Controls.Add(this.dataGridView1);
+            this.button4.Location = new System.Drawing.Point(901, 306);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(303, 25);
+            this.button4.TabIndex = 6;
+            this.button4.Text = "Редактировать";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // splitContainer2.Panel2
+            // groupBox6
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.label14);
-            this.splitContainer2.Panel2.Controls.Add(this.label13);
-            this.splitContainer2.Panel2.Controls.Add(this.label12);
-            this.splitContainer2.Panel2.Controls.Add(this.label11);
-            this.splitContainer2.Panel2.Controls.Add(this.label10);
-            this.splitContainer2.Panel2.Controls.Add(this.label9);
-            this.splitContainer2.Panel2.Controls.Add(this.buttonExecute);
-            this.splitContainer2.Panel2.Controls.Add(this.label1);
-            this.splitContainer2.Panel2.Controls.Add(this.textBoxQuery);
-            this.splitContainer2.Size = new System.Drawing.Size(1212, 621);
-            this.splitContainer2.SplitterDistance = 540;
-            this.splitContainer2.TabIndex = 0;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1212, 540);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // buttonExecute
-            // 
-            this.buttonExecute.Location = new System.Drawing.Point(1129, 11);
-            this.buttonExecute.Name = "buttonExecute";
-            this.buttonExecute.Size = new System.Drawing.Size(75, 23);
-            this.buttonExecute.TabIndex = 1;
-            this.buttonExecute.Text = "Выполнить";
-            this.buttonExecute.UseVisualStyleBackColor = true;
-            this.buttonExecute.Click += new System.EventHandler(this.buttonExecute_Click);
+            this.groupBox6.Controls.Add(this.label1);
+            this.groupBox6.Controls.Add(this.textBoxAboutUs);
+            this.groupBox6.Controls.Add(this.label26);
+            this.groupBox6.Location = new System.Drawing.Point(867, 3);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(337, 266);
+            this.groupBox6.TabIndex = 14;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "О нас";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 16);
+            this.label1.Location = new System.Drawing.Point(58, 62);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(142, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "SQL запрос в базу данных";
+            this.label1.Size = new System.Drawing.Size(60, 13);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Описание ";
             // 
-            // textBoxQuery
+            // textBoxAboutUs
             // 
-            this.textBoxQuery.Location = new System.Drawing.Point(156, 13);
-            this.textBoxQuery.Name = "textBoxQuery";
-            this.textBoxQuery.Size = new System.Drawing.Size(967, 20);
-            this.textBoxQuery.TabIndex = 0;
+            this.textBoxAboutUs.Enabled = false;
+            this.textBoxAboutUs.Location = new System.Drawing.Point(55, 79);
+            this.textBoxAboutUs.Multiline = true;
+            this.textBoxAboutUs.Name = "textBoxAboutUs";
+            this.textBoxAboutUs.Size = new System.Drawing.Size(245, 142);
+            this.textBoxAboutUs.TabIndex = 9;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(29, 62);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(0, 13);
+            this.label26.TabIndex = 8;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.textBoxAddress2);
+            this.groupBox4.Controls.Add(this.textBoxAddress5);
+            this.groupBox4.Controls.Add(this.textBoxAddress1);
+            this.groupBox4.Controls.Add(this.textBoxAddress4);
+            this.groupBox4.Controls.Add(this.textBoxAddress3);
+            this.groupBox4.Location = new System.Drawing.Point(430, 3);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(431, 266);
+            this.groupBox4.TabIndex = 8;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Адреса";
+            // 
+            // textBoxAddress2
+            // 
+            this.textBoxAddress2.Enabled = false;
+            this.textBoxAddress2.Location = new System.Drawing.Point(28, 79);
+            this.textBoxAddress2.Name = "textBoxAddress2";
+            this.textBoxAddress2.Size = new System.Drawing.Size(367, 20);
+            this.textBoxAddress2.TabIndex = 2;
+            // 
+            // textBoxAddress5
+            // 
+            this.textBoxAddress5.Enabled = false;
+            this.textBoxAddress5.Location = new System.Drawing.Point(28, 157);
+            this.textBoxAddress5.Name = "textBoxAddress5";
+            this.textBoxAddress5.Size = new System.Drawing.Size(367, 20);
+            this.textBoxAddress5.TabIndex = 5;
+            // 
+            // textBoxAddress1
+            // 
+            this.textBoxAddress1.Enabled = false;
+            this.textBoxAddress1.Location = new System.Drawing.Point(28, 53);
+            this.textBoxAddress1.Name = "textBoxAddress1";
+            this.textBoxAddress1.Size = new System.Drawing.Size(367, 20);
+            this.textBoxAddress1.TabIndex = 1;
+            // 
+            // textBoxAddress4
+            // 
+            this.textBoxAddress4.Enabled = false;
+            this.textBoxAddress4.Location = new System.Drawing.Point(28, 131);
+            this.textBoxAddress4.Name = "textBoxAddress4";
+            this.textBoxAddress4.Size = new System.Drawing.Size(367, 20);
+            this.textBoxAddress4.TabIndex = 4;
+            // 
+            // textBoxAddress3
+            // 
+            this.textBoxAddress3.Enabled = false;
+            this.textBoxAddress3.Location = new System.Drawing.Point(28, 105);
+            this.textBoxAddress3.Name = "textBoxAddress3";
+            this.textBoxAddress3.Size = new System.Drawing.Size(367, 20);
+            this.textBoxAddress3.TabIndex = 3;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(8, 275);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(887, 338);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.textBoxContact2);
+            this.groupBox3.Controls.Add(this.textBoxContact5);
+            this.groupBox3.Controls.Add(this.textBoxContact1);
+            this.groupBox3.Controls.Add(this.textBoxContact4);
+            this.groupBox3.Controls.Add(this.textBoxContact3);
+            this.groupBox3.Location = new System.Drawing.Point(8, 3);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(416, 266);
+            this.groupBox3.TabIndex = 6;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Контакты";
+            // 
+            // textBoxContact2
+            // 
+            this.textBoxContact2.Enabled = false;
+            this.textBoxContact2.Location = new System.Drawing.Point(26, 79);
+            this.textBoxContact2.Name = "textBoxContact2";
+            this.textBoxContact2.Size = new System.Drawing.Size(355, 20);
+            this.textBoxContact2.TabIndex = 2;
+            // 
+            // textBoxContact5
+            // 
+            this.textBoxContact5.Enabled = false;
+            this.textBoxContact5.Location = new System.Drawing.Point(26, 157);
+            this.textBoxContact5.Name = "textBoxContact5";
+            this.textBoxContact5.Size = new System.Drawing.Size(355, 20);
+            this.textBoxContact5.TabIndex = 5;
+            // 
+            // textBoxContact1
+            // 
+            this.textBoxContact1.Enabled = false;
+            this.textBoxContact1.Location = new System.Drawing.Point(26, 53);
+            this.textBoxContact1.Name = "textBoxContact1";
+            this.textBoxContact1.Size = new System.Drawing.Size(355, 20);
+            this.textBoxContact1.TabIndex = 1;
+            // 
+            // textBoxContact4
+            // 
+            this.textBoxContact4.Enabled = false;
+            this.textBoxContact4.Location = new System.Drawing.Point(26, 131);
+            this.textBoxContact4.Name = "textBoxContact4";
+            this.textBoxContact4.Size = new System.Drawing.Size(355, 20);
+            this.textBoxContact4.TabIndex = 4;
+            // 
+            // textBoxContact3
+            // 
+            this.textBoxContact3.Enabled = false;
+            this.textBoxContact3.Location = new System.Drawing.Point(26, 105);
+            this.textBoxContact3.Name = "textBoxContact3";
+            this.textBoxContact3.Size = new System.Drawing.Size(355, 20);
+            this.textBoxContact3.TabIndex = 3;
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(8, 44);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(79, 13);
-            this.label9.TabIndex = 2;
-            this.label9.Text = "!Информация:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(93, 44);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(124, 13);
-            this.label10.TabIndex = 3;
-            this.label10.Text = "Названия всех таблиц:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(238, 44);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(49, 13);
-            this.label11.TabIndex = 4;
-            this.label11.Text = "Contacts";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(327, 44);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(38, 13);
-            this.label12.TabIndex = 5;
-            this.label12.Text = "Orders";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(411, 44);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(49, 13);
-            this.label13.TabIndex = 6;
-            this.label13.Text = "Products";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(504, 44);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(34, 13);
-            this.label14.TabIndex = 7;
-            this.label14.Text = "Users";
             // 
             // AdminForm
             // 
@@ -694,12 +766,13 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
-            this.splitContainer2.Panel1.ResumeLayout(false);
-            this.splitContainer2.Panel2.ResumeLayout(false);
-            this.splitContainer2.Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
-            this.splitContainer2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -726,11 +799,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button buttonUnactive;
         private System.Windows.Forms.Button buttonActive;
-        private System.Windows.Forms.SplitContainer splitContainer2;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button buttonExecute;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBoxQuery;
         private System.Windows.Forms.SplitContainer splitContainer3;
         private System.Windows.Forms.ListView listView2;
         private System.Windows.Forms.ColumnHeader columnHeader10;
@@ -761,11 +829,24 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label labelErr;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBoxContact5;
+        private System.Windows.Forms.TextBox textBoxContact4;
+        private System.Windows.Forms.TextBox textBoxContact3;
+        private System.Windows.Forms.TextBox textBoxContact2;
+        private System.Windows.Forms.TextBox textBoxContact1;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.TextBox textBoxAddress2;
+        private System.Windows.Forms.TextBox textBoxAddress5;
+        private System.Windows.Forms.TextBox textBoxAddress1;
+        private System.Windows.Forms.TextBox textBoxAddress4;
+        private System.Windows.Forms.TextBox textBoxAddress3;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBoxAboutUs;
     }
 }
