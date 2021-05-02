@@ -373,7 +373,7 @@ namespace ИС_формирование_заказов_компании_по_п�
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand($"SELECT Id, productName, address, price, orderDate, state FROM Orders WHERE userID = {loginForm.user.id}", conn);
+                    SqlCommand cmd = new SqlCommand($"SELECT Id, productName, address, price, orderDate, state FROM Orders WHERE userID = {loginForm.user.id} AND state = 1", conn);
                     dataReader = cmd.ExecuteReader();
                     ListViewItem viewItem;
                     while (dataReader.Read())
@@ -468,7 +468,7 @@ namespace ИС_формирование_заказов_компании_по_п�
                     writer.WriteLine($"Эл. почта: {loginForm.user.email}");
                     writer.WriteLine();
                     writer.WriteLine($"\tТовары:");
-                    SqlCommand cmd = new SqlCommand("SELECT productID,productName,price FROM Orders WHERE userID=@id", conn);
+                    SqlCommand cmd = new SqlCommand("SELECT productID,productName,price FROM Orders WHERE userID=@id AND state = 1", conn);
                     cmd.Parameters.Add("@id", SqlDbType.Int).Value = loginForm.user.id;
                     SqlDataReader dataReader = null;
                     try
@@ -524,7 +524,7 @@ namespace ИС_формирование_заказов_компании_по_п�
                 body += $"<b>Номер телефона: {loginForm.user.phoneNumber}</b><br/>";
                 body += $"<b>Адрес: {loginForm.user.address}</b><br/><br/>";
                 body += $"<h1>\tТовары:</h1></br><ol>";
-                SqlCommand cmd = new SqlCommand("SELECT productID,productName,price FROM Orders WHERE userID=@id", conn);
+                SqlCommand cmd = new SqlCommand("SELECT productID,productName,price FROM Orders WHERE userID=@id AND state = 1", conn);
                 cmd.Parameters.Add("@id", SqlDbType.Int).Value = loginForm.user.id;
                 SqlDataReader dataReader = null;
                 try
@@ -596,8 +596,8 @@ namespace ИС_формирование_заказов_компании_по_п�
                 pageBody += $"Номер телефона: {loginForm.user.phoneNumber}\n";
                 pageBody += $"Адрес: {loginForm.user.address}\n";
                 pageBody += $"Эл. почта: {loginForm.user.email}\n\n";
-                pageBody += $"\tТовары:";
-                SqlCommand cmd = new SqlCommand("SELECT productID,productName,price FROM Orders WHERE userID=@id", conn);
+                pageBody += $"\tТовары:\n";
+                SqlCommand cmd = new SqlCommand("SELECT productID,productName,price FROM Orders WHERE userID=@id AND state = 1", conn);
                 cmd.Parameters.Add("@id", SqlDbType.Int).Value = loginForm.user.id;
                 SqlDataReader dataReader = null;
                 try
@@ -647,6 +647,7 @@ namespace ИС_формирование_заказов_компании_по_п�
             {
                 MessageBox.Show("Выполните вход", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            pageBody = string.Empty;
         }
         void PrintPageHandler(object sender, PrintPageEventArgs e) // for printing handler
         {
