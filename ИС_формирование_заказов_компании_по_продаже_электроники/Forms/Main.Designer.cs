@@ -55,6 +55,9 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.buttonCancelOrders = new System.Windows.Forms.Button();
             this.textBoxPhoneNum = new System.Windows.Forms.MaskedTextBox();
             this.buttonEditPassword = new System.Windows.Forms.Button();
@@ -69,11 +72,11 @@
             this.textBoxUserName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.labelAboutUs = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonAboutProgramm = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.labelAddress1 = new System.Windows.Forms.Label();
@@ -89,10 +92,7 @@
             this.labelContact5 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.labelContact4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.button3 = new System.Windows.Forms.Button();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
@@ -110,7 +110,6 @@
             this.groupBox2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBox6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
@@ -386,6 +385,36 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Мои личные данные";
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(21, 293);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(365, 23);
+            this.button3.TabIndex = 23;
+            this.button3.Text = "Печать чека";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(21, 264);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(365, 23);
+            this.button2.TabIndex = 22;
+            this.button2.Text = "Сохранить чек в текстовый файл";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(21, 235);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(365, 23);
+            this.button1.TabIndex = 21;
+            this.button1.Text = "Отправить чек на электронную почту почту";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // buttonCancelOrders
             // 
             this.buttonCancelOrders.Location = new System.Drawing.Point(195, 177);
@@ -514,9 +543,9 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.webBrowser1);
             this.tabPage3.Controls.Add(this.groupBox6);
             this.tabPage3.Controls.Add(this.label13);
-            this.tabPage3.Controls.Add(this.pictureBox1);
             this.tabPage3.Controls.Add(this.buttonAboutProgramm);
             this.tabPage3.Controls.Add(this.groupBox5);
             this.tabPage3.Controls.Add(this.groupBox4);
@@ -526,6 +555,15 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Контакты";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Location = new System.Drawing.Point(8, 240);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(887, 338);
+            this.webBrowser1.TabIndex = 14;
+            this.webBrowser1.Url = new System.Uri("C:\\map.html", System.UriKind.Absolute);
             // 
             // groupBox6
             // 
@@ -564,15 +602,6 @@
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(0, 13);
             this.label13.TabIndex = 4;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(8, 240);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(887, 338);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
             // 
             // buttonAboutProgramm
             // 
@@ -720,39 +749,9 @@
             this.labelContact4.TabIndex = 0;
             this.labelContact4.Text = "_";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(21, 235);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(365, 23);
-            this.button1.TabIndex = 21;
-            this.button1.Text = "Отправить чек на электронную почту почту";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(21, 264);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(365, 23);
-            this.button2.TabIndex = 22;
-            this.button2.Text = "Сохранить чек в текстовый файл";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // saveFileDialog1
             // 
             this.saveFileDialog1.DefaultExt = "txt";
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(21, 293);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(365, 23);
-            this.button3.TabIndex = 23;
-            this.button3.Text = "Печать чека";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // printDialog1
             // 
@@ -798,7 +797,6 @@
             this.tabPage3.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -840,7 +838,6 @@
         private System.Windows.Forms.Label labelContact4;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ListView listViewUserOrders;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Label label26;
@@ -875,6 +872,7 @@
         private System.Windows.Forms.PrintDialog printDialog1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.WebBrowser webBrowser1;
     }
 }
 

@@ -29,7 +29,9 @@ namespace ИС_формирование_заказов_компании_по_п�
             InitializeComponent();
         }
         private void main_Load(object sender, EventArgs e)
-        {        
+        {
+            string html = File.ReadAllText("resources/map.html");
+            webBrowser1.DocumentText = html;
             labelAddressArr = new Label[5] { labelAddress1, labelAddress2, labelAddress3, labelAddress4, labelAddress5 };
             labelContactArr = new Label[5]{labelContact1, labelContact2,labelContact3,labelContact4,labelContact5};
             conn = new SqlConnection(ConfigurationManager.ConnectionStrings["database"].ConnectionString);
@@ -50,7 +52,7 @@ namespace ИС_формирование_заказов_компании_по_п�
                 {
                     if (i == 0 && dataReader[4] != null)
                     {
-                        pictureBox1.Image = Image.FromFile("resources\\images\\" + Convert.ToString(dataReader[4]));
+                        //pictureBox1.Image = Image.FromFile("resources\\images\\" + Convert.ToString(dataReader[4]));
                     }
                     if (i == 0 && dataReader[3] != null)
                     {
