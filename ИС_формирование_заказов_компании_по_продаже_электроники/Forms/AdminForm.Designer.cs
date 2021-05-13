@@ -78,7 +78,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -90,7 +89,6 @@
             this.textBoxAddress1 = new System.Windows.Forms.TextBox();
             this.textBoxAddress4 = new System.Windows.Forms.TextBox();
             this.textBoxAddress3 = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.textBoxContact2 = new System.Windows.Forms.TextBox();
             this.textBoxContact5 = new System.Windows.Forms.TextBox();
@@ -98,6 +96,11 @@
             this.textBoxContact4 = new System.Windows.Forms.TextBox();
             this.textBoxContact3 = new System.Windows.Forms.TextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.textBoxHtml = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.buttonHtml = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -114,7 +117,6 @@
             this.tabPage3.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -547,11 +549,14 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.button5);
+            this.tabPage3.Controls.Add(this.buttonHtml);
+            this.tabPage3.Controls.Add(this.label10);
+            this.tabPage3.Controls.Add(this.label9);
+            this.tabPage3.Controls.Add(this.textBoxHtml);
+            this.tabPage3.Controls.Add(this.webBrowser1);
             this.tabPage3.Controls.Add(this.button4);
             this.tabPage3.Controls.Add(this.groupBox6);
             this.tabPage3.Controls.Add(this.groupBox4);
-            this.tabPage3.Controls.Add(this.pictureBox1);
             this.tabPage3.Controls.Add(this.groupBox3);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
@@ -560,19 +565,9 @@
             this.tabPage3.Text = "Контактная информация";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(901, 275);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(303, 25);
-            this.button5.TabIndex = 15;
-            this.button5.Text = "Загрузить картинку";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(901, 306);
+            this.button4.Location = new System.Drawing.Point(901, 275);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(303, 25);
             this.button4.TabIndex = 6;
@@ -672,15 +667,6 @@
             this.textBoxAddress3.Size = new System.Drawing.Size(367, 20);
             this.textBoxAddress3.TabIndex = 3;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(8, 275);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(887, 338);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.textBoxContact2);
@@ -739,6 +725,51 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Location = new System.Drawing.Point(8, 275);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(887, 338);
+            this.webBrowser1.TabIndex = 15;
+            this.webBrowser1.Url = new System.Uri("C:\\map.html", System.UriKind.Absolute);
+            // 
+            // textBoxHtml
+            // 
+            this.textBoxHtml.Location = new System.Drawing.Point(901, 352);
+            this.textBoxHtml.Multiline = true;
+            this.textBoxHtml.Name = "textBoxHtml";
+            this.textBoxHtml.Size = new System.Drawing.Size(303, 169);
+            this.textBoxHtml.TabIndex = 16;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(901, 336);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(168, 13);
+            this.label9.TabIndex = 17;
+            this.label9.Text = "Строка для подключения карты";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(919, 590);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(268, 13);
+            this.label10.TabIndex = 18;
+            this.label10.Text = "Рекомендуемые размеры width=\"877\" height=\"328\"";
+            // 
+            // buttonHtml
+            // 
+            this.buttonHtml.Location = new System.Drawing.Point(901, 527);
+            this.buttonHtml.Name = "buttonHtml";
+            this.buttonHtml.Size = new System.Drawing.Size(303, 25);
+            this.buttonHtml.TabIndex = 19;
+            this.buttonHtml.Text = "Добавить";
+            this.buttonHtml.UseVisualStyleBackColor = true;
+            this.buttonHtml.Click += new System.EventHandler(this.buttonHtml_Click);
+            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -766,11 +797,11 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
@@ -835,7 +866,6 @@
         private System.Windows.Forms.TextBox textBoxContact2;
         private System.Windows.Forms.TextBox textBoxContact1;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.TextBox textBoxAddress2;
         private System.Windows.Forms.TextBox textBoxAddress5;
@@ -844,9 +874,13 @@
         private System.Windows.Forms.TextBox textBoxAddress3;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxAboutUs;
+        private System.Windows.Forms.WebBrowser webBrowser1;
+        private System.Windows.Forms.Button buttonHtml;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBoxHtml;
     }
 }

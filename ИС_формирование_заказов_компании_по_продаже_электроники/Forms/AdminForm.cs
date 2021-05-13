@@ -26,6 +26,8 @@ namespace ИС_формирование_заказов_компании_по_п�
 
         private void AdminForm_Load(object sender, EventArgs e)
         {
+            string html = File.ReadAllText("resources/map.html");
+            webBrowser1.DocumentText = html;
             niggaAddressBoxes = new TextBox[] { textBoxAddress1, textBoxAddress2, textBoxAddress3, textBoxAddress4, textBoxAddress5 };
             niggaContactsBoxes = new TextBox[] { textBoxContact1, textBoxContact2, textBoxContact3, textBoxContact4, textBoxContact5 };
             imgIsOk = false;
@@ -49,7 +51,7 @@ namespace ИС_формирование_заказов_компании_по_п�
                     if (i==0)
                     {
                         textBoxAboutUs.Text = Convert.ToString(dataReader[3]);
-                        pictureBox1.Image = Image.FromFile("resources\\images\\" + Convert.ToString(dataReader[4]));
+                        
                     }
                 }
             }
@@ -369,7 +371,7 @@ namespace ИС_формирование_заказов_компании_по_п�
                         SqlCommand cmd = new SqlCommand("UPDATE Contacts SET image = @img WHERE id = 1", conn);
                         cmd.Parameters.Add("@img", SqlDbType.NVarChar).Value = openFileDialog1.SafeFileName;
                         cmd.ExecuteNonQuery();
-                        pictureBox1.Image =Image.FromFile(@"resources\images\" + openFileDialog1.SafeFileName);
+                        
                     }
                     catch (Exception ex)
                     {
@@ -382,6 +384,16 @@ namespace ИС_формирование_заказов_компании_по_п�
                     MessageBox.Show("Такой файл недопустим");
                 }
             }
+        }
+
+        private void buttonHtml_Click(object sender, EventArgs e)
+        {
+            string htmlAbove = "<!DOCTYPE html><html lang=\"en\"><head><meta charset=\"UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><style>*{margin:0}</style><title>Document</title></head><body>";
+            string htmlUnder = "</body></html>";
+            StreamWriter sw = new StreamWriter("resources/map.html", false, System.Text.Encoding.Default);
+            sw.WriteLine(htmlAbove+textBoxHtml.Text+htmlUnder);
+            sw.Close();
+            MessageBox.Show("Изменения добавлены!","Успех!",MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
     }
 }
