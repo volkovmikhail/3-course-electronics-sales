@@ -78,6 +78,11 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.buttonHtml = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBoxHtml = new System.Windows.Forms.TextBox();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.button4 = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -96,11 +101,6 @@
             this.textBoxContact4 = new System.Windows.Forms.TextBox();
             this.textBoxContact3 = new System.Windows.Forms.TextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
-            this.textBoxHtml = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.buttonHtml = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -398,7 +398,7 @@
             this.groupBox2.Size = new System.Drawing.Size(1196, 311);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
+            this.groupBox2.Text = "Добавление продукта";
             // 
             // labelErr
             // 
@@ -565,6 +565,51 @@
             this.tabPage3.Text = "Контактная информация";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // buttonHtml
+            // 
+            this.buttonHtml.Location = new System.Drawing.Point(901, 527);
+            this.buttonHtml.Name = "buttonHtml";
+            this.buttonHtml.Size = new System.Drawing.Size(303, 25);
+            this.buttonHtml.TabIndex = 19;
+            this.buttonHtml.Text = "Добавить";
+            this.buttonHtml.UseVisualStyleBackColor = true;
+            this.buttonHtml.Click += new System.EventHandler(this.buttonHtml_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(919, 590);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(268, 13);
+            this.label10.TabIndex = 18;
+            this.label10.Text = "Рекомендуемые размеры width=\"877\" height=\"328\"";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(901, 336);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(168, 13);
+            this.label9.TabIndex = 17;
+            this.label9.Text = "Строка для подключения карты";
+            // 
+            // textBoxHtml
+            // 
+            this.textBoxHtml.Location = new System.Drawing.Point(901, 352);
+            this.textBoxHtml.Multiline = true;
+            this.textBoxHtml.Name = "textBoxHtml";
+            this.textBoxHtml.Size = new System.Drawing.Size(303, 169);
+            this.textBoxHtml.TabIndex = 16;
+            // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Location = new System.Drawing.Point(8, 275);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(887, 338);
+            this.webBrowser1.TabIndex = 15;
+            this.webBrowser1.Url = new System.Uri("C:\\map.html", System.UriKind.Absolute);
+            // 
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(901, 275);
@@ -724,51 +769,6 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // webBrowser1
-            // 
-            this.webBrowser1.Location = new System.Drawing.Point(8, 275);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(887, 338);
-            this.webBrowser1.TabIndex = 15;
-            this.webBrowser1.Url = new System.Uri("C:\\map.html", System.UriKind.Absolute);
-            // 
-            // textBoxHtml
-            // 
-            this.textBoxHtml.Location = new System.Drawing.Point(901, 352);
-            this.textBoxHtml.Multiline = true;
-            this.textBoxHtml.Name = "textBoxHtml";
-            this.textBoxHtml.Size = new System.Drawing.Size(303, 169);
-            this.textBoxHtml.TabIndex = 16;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(901, 336);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(168, 13);
-            this.label9.TabIndex = 17;
-            this.label9.Text = "Строка для подключения карты";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(919, 590);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(268, 13);
-            this.label10.TabIndex = 18;
-            this.label10.Text = "Рекомендуемые размеры width=\"877\" height=\"328\"";
-            // 
-            // buttonHtml
-            // 
-            this.buttonHtml.Location = new System.Drawing.Point(901, 527);
-            this.buttonHtml.Name = "buttonHtml";
-            this.buttonHtml.Size = new System.Drawing.Size(303, 25);
-            this.buttonHtml.TabIndex = 19;
-            this.buttonHtml.Text = "Добавить";
-            this.buttonHtml.UseVisualStyleBackColor = true;
-            this.buttonHtml.Click += new System.EventHandler(this.buttonHtml_Click);
             // 
             // AdminForm
             // 
